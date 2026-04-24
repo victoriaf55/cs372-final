@@ -19,21 +19,21 @@ from datetime import datetime
 SEED = 2026
 ENV_NAME = "InvertedDoublePendulum-v5"
 TOTAL_TIMESTEPS = 1_000_000
-ROLLOUT_STEPS = 2048      # Steps collected before each update
+ROLLOUT_STEPS = 4096      # Increased for better policy updates
 HIDDEN_DIM = 64
-LR = 3e-4
+LR = 1e-4              # Decreased for more stable training
 CLIP_EPS = 0.2
 N_EPOCHS = 10
 BATCH_SIZE = 64
 GAMMA = 0.99
 GAE_LAMBDA = 0.95
-ENTROPY_COEF = 0.01
+ENTROPY_COEF = 0.05  # Increased to encourage exploration
 VALUE_COEF = 0.5
 MAX_GRAD_NORM = 0.5
 LOG_INTERVAL = 10         # Log every N updates
 SAVE_INTERVAL = 50        # Save checkpoint every N updates
 CHECKPOINT_PATH = "/content/drive/MyDrive/cs372_final_project/checkpoints"
-RUN_NAME = f"ppo_lr{LR}_clip{CLIP_EPS}_epochs{N_EPOCHS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
+RUN_NAME = f"ppo_lr{LR}_clip{CLIP_EPS}_entropy{ENTROPY_COEF}_rollout{ROLLOUT_STEPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {DEVICE}")
