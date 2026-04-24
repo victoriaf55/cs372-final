@@ -80,7 +80,18 @@ class PPO:
         device="cpu"
     ):
         self.model = model.to(device)
-        self.optimizer = optim.Adam(model.parameters(), lr=lr)
+        # self.optimizer = optim.Adam(model.parameters(), lr=lr)
+        self.actor_optimizer = optim.Adam(
+            list(model.shared.parameters()) + 
+            list(model.mu.parameters()) + 
+            [model.log_std], 
+            lr=lr
+        )
+        self.critic_optimizer = optim.Adam(
+            list(model.shared.parameters()) + 
+            list(model.value.parameters()), 
+            lr=lr * 10  # critic learns faster
+        )
         self.buffer = RolloutBuffer()
 
         # Hyperparameters
@@ -160,10 +171,12 @@ class PPO:
                 loss = policy_loss + self.value_coef * value_loss + self.entropy_coef * entropy_loss
 
                 # Gradient update with clipping
-                self.optimizer.zero_grad()
+                self.actor_optimizer.zero_grad()
+                self.critic_optimizer.zero_grad()
                 loss.backward()
                 nn.utils.clip_grad_norm_(self.model.parameters(), self.max_grad_norm)
-                self.optimizer.step()
+                self.actor_optimizer.step()
+                self.critic_optimizer.step()
 
         self.buffer.clear()
 
