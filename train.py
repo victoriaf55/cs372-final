@@ -17,7 +17,7 @@ from datetime import datetime
 
 # --- Config ---
 SEED = 2026
-ENV_NAME = "InvertedDoublePendulum-v5"
+ENV_NAME = "InvertedPendulum-v5"
 TOTAL_TIMESTEPS = 1_000_000
 ROLLOUT_STEPS = 2048      
 HIDDEN_DIM = 64
