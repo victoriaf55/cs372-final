@@ -67,11 +67,11 @@ agent = PPO(
 )
 
 # AI-GENERATED: Load checkpoint if specified
-if os.path.exists(RESUME_CHECKPOINT):
-    model.load_state_dict(torch.load(RESUME_CHECKPOINT, map_location=DEVICE))
-    print(f"Resumed from checkpoint: {RESUME_CHECKPOINT}")
-else:
-    print("No checkpoint found, starting fresh")
+# if os.path.exists(RESUME_CHECKPOINT):
+#     model.load_state_dict(torch.load(RESUME_CHECKPOINT, map_location=DEVICE))
+#     print(f"Resumed from checkpoint: {RESUME_CHECKPOINT}")
+# else:
+#     print("No checkpoint found, starting fresh")
 
 # AI-GENERATED: TensorBoard writer initialized with run name for experiment tracking
 writer = SummaryWriter(
