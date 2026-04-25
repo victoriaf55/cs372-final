@@ -6,6 +6,7 @@
 # Modified by: Victoria Feng — verified against GAE paper (Schulman et al. 2016)
 # =============================================================================
 
+from sqlalchemy import values
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -81,17 +82,7 @@ class PPO:
     ):
         self.model = model.to(device)
         # self.optimizer = optim.Adam(model.parameters(), lr=lr)
-        self.actor_optimizer = optim.Adam(
-            list(model.shared.parameters()) + 
-            list(model.mu.parameters()) + 
-            [model.log_std], 
-            lr=lr
-        )
-        self.critic_optimizer = optim.Adam(
-            list(model.shared.parameters()) + 
-            list(model.value.parameters()), 
-            lr=lr * 10  # critic learns faster
-        )
+        self.optimizer = optim.Adam(model.parameters(), lr=lr)
         self.buffer = RolloutBuffer()
 
         # Hyperparameters
@@ -119,6 +110,8 @@ class PPO:
     def update(self):
         # AI-GENERATED: Full PPO update step
         obs, actions, old_log_probs, rewards, values, dones = self.buffer.get()
+        print(f"Reward range: {rewards.min():.2f} to {rewards.max():.2f}")
+        print(f"Value range: {values.min():.2f} to {values.max():.2f}")
         obs = obs.to(self.device)
         actions = actions.to(self.device)
         old_log_probs = old_log_probs.to(self.device)
@@ -171,12 +164,10 @@ class PPO:
                 loss = policy_loss + self.value_coef * value_loss + self.entropy_coef * entropy_loss
 
                 # Gradient update with clipping
-                self.actor_optimizer.zero_grad()
-                self.critic_optimizer.zero_grad()
+                self.optimizer.zero_grad()
                 loss.backward()
                 nn.utils.clip_grad_norm_(self.model.parameters(), self.max_grad_norm)
-                self.actor_optimizer.step()
-                self.critic_optimizer.step()
+                self.optimizer.step()
 
         self.buffer.clear()
 
