@@ -40,9 +40,19 @@ class ActorCritic(nn.Module):
         # learned parameter independent of observation
         self.mu = nn.Linear(hidden_dim, act_dim)
         self.log_std = nn.Parameter(torch.zeros(act_dim))
+        nn.init.orthogonal_(self.mu.weight, gain=0.01)
+        nn.init.constant_(self.mu.bias, 0.0)
 
         # AI-GENERATED: Value head — scalar estimate of state value V(s)
         self.value = nn.Linear(hidden_dim, 1)
+        nn.init.orthogonal_(self.value.weight, gain=0.01)
+        nn.init.constant_(self.value.bias, 0.0)
+        
+        # AI-GENERATED: Initialize shared trunk with orthogonal weights
+        for layer in self.shared:
+            if isinstance(layer, nn.Linear):
+                nn.init.orthogonal_(layer.weight, gain=np.sqrt(2))
+                nn.init.constant_(layer.bias, 0.0)
 
     def forward(self, obs):
         # AI-GENERATED: Forward pass returning a Normal distribution and value
