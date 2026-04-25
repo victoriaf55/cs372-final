@@ -110,6 +110,11 @@ class PPO:
     def update(self):
         # AI-GENERATED: Full PPO update step
         obs, actions, old_log_probs, rewards, values, dones = self.buffer.get()
+        
+        print(f"Dones sum: {dones.sum().item()}")  # should be > 0
+        print(f"Reward mean: {rewards.mean().item():.4f}")
+        print(f"Value mean: {values.mean().item():.4f}")
+        
         obs = obs.to(self.device)
         actions = actions.to(self.device)
         old_log_probs = old_log_probs.to(self.device)
