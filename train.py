@@ -18,7 +18,7 @@ from datetime import datetime
 # --- Config ---
 SEED = 2026
 ENV_NAME = "InvertedPendulum-v5"
-TOTAL_TIMESTEPS = 300_000
+TOTAL_TIMESTEPS = 500_000
 ROLLOUT_STEPS = 2048      
 HIDDEN_DIM = 64
 LR = 3e-4            
@@ -28,7 +28,7 @@ BATCH_SIZE = 128
 GAMMA = 0.99
 GAE_LAMBDA = 0.95
 ENTROPY_COEF = 0.0    # Decreased to encourage convergence
-VALUE_COEF = 0.2       # Decrease to prevent value loss from dominating policy updates
+VALUE_COEF = 0.5       # Decrease to prevent value loss from dominating policy updates
 MAX_GRAD_NORM = 0.5
 LOG_INTERVAL = 5         # Log every N updates
 SAVE_INTERVAL = 50        # Save checkpoint every N updates
