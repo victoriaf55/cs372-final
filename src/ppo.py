@@ -10,7 +10,7 @@ from sqlalchemy import values
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from agents.rollout_buffer import RolloutBuffer
+from src.rollout_buffer import RolloutBuffer
 
 
 def compute_gae(rewards, values, dones, gamma=0.99, gae_lambda=0.95):

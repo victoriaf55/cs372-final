@@ -12,7 +12,7 @@ import numpy as np
 import gymnasium as gym
 from torch.utils.tensorboard import SummaryWriter
 from models.actor_critic import ActorCritic
-from agents.ppo import PPO
+from src.ppo import PPO
 from datetime import datetime
 import os
 
