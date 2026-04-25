@@ -20,6 +20,8 @@ import gymnasium as gym
 import glob
 import argparse
 import os
+from pyvirtualdisplay import Display
+from IPython.display import HTML
 from datetime import datetime
 from base64 import b64encode
 from models.actor_critic import ActorCritic
