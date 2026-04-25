@@ -135,13 +135,13 @@ while timestep < TOTAL_TIMESTEPS:
         writer.add_scalar("losses/value_loss", losses['value_loss'], timestep)
         writer.add_scalar("losses/entropy", losses['entropy'], timestep)
 
-    # Checkpoint
-    if update % SAVE_INTERVAL == 0:
-        torch.save(
-            model.state_dict(),
-            f"{CHECKPOINT_PATH}/ppo_update_{update}.pt"
-        )
-        print(f"Checkpoint saved at update {update}")
+    # # Checkpoint
+    # if update % SAVE_INTERVAL == 0:
+    #     torch.save(
+    #         model.state_dict(),
+    #         f"{CHECKPOINT_PATH}/ppo_update_{update}.pt"
+    #     )
+    #     print(f"Checkpoint saved at update {update}")
 
 env.close()
 writer.close()
