@@ -143,6 +143,13 @@ while timestep < TOTAL_TIMESTEPS:
     #     )
     #     print(f"Checkpoint saved at update {update}")
 
+# Only for experiments
+torch.save(
+    model.state_dict(),
+    f"{CHECKPOINT_PATH}/study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}.pt"
+)
+print(f"Checkpoint saved at final update")
+
 env.close()
 writer.close()
 print("Training complete.")
