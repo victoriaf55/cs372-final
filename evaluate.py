@@ -13,7 +13,7 @@ import gymnasium as gym
 import glob
 import argparse
 import os
-import datetime
+from datetime import datetime
 from pyvirtualdisplay import Display
 from IPython.display import HTML
 from base64 import b64encode
