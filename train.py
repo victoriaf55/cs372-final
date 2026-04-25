@@ -14,11 +14,12 @@ from torch.utils.tensorboard import SummaryWriter
 from models.actor_critic import ActorCritic
 from agents.ppo import PPO
 from datetime import datetime
+import os
 
 # --- Config ---
 SEED = 2026
 ENV_NAME = "InvertedPendulum-v5"
-TOTAL_TIMESTEPS = 500_000
+TOTAL_TIMESTEPS = 2_000_000
 ROLLOUT_STEPS = 4096      
 HIDDEN_DIM = 64
 LR = 3e-4            
@@ -34,6 +35,7 @@ LOG_INTERVAL = 5         # Log every N updates
 SAVE_INTERVAL = 50        # Save checkpoint every N updates
 CHECKPOINT_PATH = "/content/drive/MyDrive/cs372_final_project/checkpoints"
 RUN_NAME = f"ppo_lr{LR}_clip{CLIP_EPS}_entropy{ENTROPY_COEF}_rollout{ROLLOUT_STEPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
+RESUME_CHECKPOINT = f"{CHECKPOINT_PATH}/ppo_update_450.pt"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {DEVICE}")
@@ -63,6 +65,13 @@ agent = PPO(
     batch_size=BATCH_SIZE,
     device=DEVICE
 )
+
+# AI-GENERATED: Load checkpoint if specified
+if os.path.exists(RESUME_CHECKPOINT):
+    model.load_state_dict(torch.load(RESUME_CHECKPOINT, map_location=DEVICE))
+    print(f"Resumed from checkpoint: {RESUME_CHECKPOINT}")
+else:
+    print("No checkpoint found, starting fresh")
 
 # AI-GENERATED: TensorBoard writer initialized with run name for experiment tracking
 writer = SummaryWriter(
