@@ -35,7 +35,7 @@ LOG_INTERVAL = 5         # Log every N updates
 SAVE_INTERVAL = 50        # Save checkpoint every N updates
 CHECKPOINT_PATH = "/content/drive/MyDrive/cs372_final_project/checkpoints"
 RUN_NAME = f"ppo_lr{LR}_clip{CLIP_EPS}_entropy{ENTROPY_COEF}_rollout{ROLLOUT_STEPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
-RESUME_CHECKPOINT = f"{CHECKPOINT_PATH}/ppo_update_450.pt"
+RESUME_CHECKPOINT = f"{CHECKPOINT_PATH}/ppo_update_400.pt"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {DEVICE}")
