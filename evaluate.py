@@ -13,6 +13,7 @@ import gymnasium as gym
 import glob
 import argparse
 import os
+import datetime
 from pyvirtualdisplay import Display
 from IPython.display import HTML
 from base64 import b64encode
@@ -149,13 +150,18 @@ def record_video(model, env_name, video_path, device, seed=42):
     # Start virtual display for Colab
     display = Display(visible=0, size=(400, 300))
     display.start()
-
-    os.makedirs(video_path, exist_ok=True)
+    
+    # AI-GENERATED: Timestamped subfolder to prevent overwriting
+    timestamped_path = os.path.join(
+        video_path, 
+        datetime.now().strftime("%Y%m%d_%H%M%S")
+    )
+    os.makedirs(timestamped_path, exist_ok=True)
 
     env = gym.make(env_name, render_mode="rgb_array")
     env = gym.wrappers.RecordVideo(
         env,
-        video_folder=video_path,
+        video_folder=timestamped_path,
         episode_trigger=lambda e: True
     )
 
