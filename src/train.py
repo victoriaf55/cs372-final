@@ -21,15 +21,14 @@ from torch.utils.tensorboard import SummaryWriter
 from models.actor_critic import ActorCritic
 from src.ppo import PPO
 from datetime import datetime
-import os
 
 # --- Config ---
 SEED = 2026
 ENV_NAME = "InvertedPendulum-v5"
-TOTAL_TIMESTEPS = 2_000_000
+TOTAL_TIMESTEPS = 1_500_000
 ROLLOUT_STEPS = 4096      
 HIDDEN_DIM = 64
-LR = 3e-4            
+LR = 1e-4            
 CLIP_EPS = 0.2
 N_EPOCHS = 10           
 BATCH_SIZE = 64
@@ -41,7 +40,7 @@ MAX_GRAD_NORM = 0.5
 LOG_INTERVAL = 5         # Log every N updates
 SAVE_INTERVAL = 50        # Save checkpoint every N updates
 CHECKPOINT_PATH = "/content/drive/MyDrive/cs372_final_project/checkpoints"
-RUN_NAME = f"ppo_lr{LR}_clip{CLIP_EPS}_entropy{ENTROPY_COEF}_rollout{ROLLOUT_STEPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
+RUN_NAME = f"study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
 RESUME_CHECKPOINT = f"{CHECKPOINT_PATH}/ppo_update_400.pt"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
