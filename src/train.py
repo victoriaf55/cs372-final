@@ -29,18 +29,18 @@ TOTAL_TIMESTEPS = 1_500_000
 ROLLOUT_STEPS = 4096      
 HIDDEN_DIM = 64
 LR = 3e-4            
-CLIP_EPS = 0.2
+CLIP_EPS = 0.1
 N_EPOCHS = 10           
 BATCH_SIZE = 64
 GAMMA = 0.99
 GAE_LAMBDA = 0.95
 ENTROPY_COEF = 0.01    # Decreased to encourage convergence
-VALUE_COEF = 0.8       # Decrease to prevent value loss from dominating policy updates
+VALUE_COEF = 0.5       # Decrease to prevent value loss from dominating policy updates
 MAX_GRAD_NORM = 0.5
 LOG_INTERVAL = 5         # Log every N updates
 SAVE_INTERVAL = 50        # Save checkpoint every N updates
 CHECKPOINT_PATH = "/content/drive/MyDrive/cs372_final_project/checkpoints"
-RUN_NAME = f"VAL2_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
+RUN_NAME = f"CLIP1_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
 RESUME_CHECKPOINT = f"{CHECKPOINT_PATH}/ppo_update_400.pt"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -146,7 +146,7 @@ while timestep < TOTAL_TIMESTEPS:
 # Only for experiments
 torch.save(
     model.state_dict(),
-    f"{CHECKPOINT_PATH}/VAL2_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}.pt"
+    f"{CHECKPOINT_PATH}/CLIP1_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}.pt"
 )
 print(f"Checkpoint saved at final update")
 
