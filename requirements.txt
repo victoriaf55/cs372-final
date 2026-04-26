@@ -1,6 +1,6 @@
-gymnasium[mujoco]==1.2.3
+gymnasium==1.2.3
 torch==2.10.0
-tensorboard
+tensorboard==2.19.0
 pyvirtualdisplay==3.0
 numpy==2.0.2
-matplotlib
+matplotlib==3.10.0
