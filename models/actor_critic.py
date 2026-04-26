@@ -30,10 +30,10 @@ class ActorCritic(nn.Module):
         # AI-GENERATED: Shared trunk with LayerNorm for training stability
         self.shared = nn.Sequential(
             nn.Linear(obs_dim, hidden_dim),
-            # nn.LayerNorm(hidden_dim),    # LayerNorm removed for ablation study
+            nn.LayerNorm(hidden_dim),    # LayerNorm removed for ablation study
             nn.Tanh(),
             nn.Linear(hidden_dim, hidden_dim),
-            # nn.LayerNorm(hidden_dim),
+            nn.LayerNorm(hidden_dim),
             nn.Tanh()
         )
 
