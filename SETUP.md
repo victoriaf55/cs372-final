@@ -8,7 +8,7 @@
 - GPU recommended (Google Colab T4 was sufficient for this project)
 
 ## Environment Setup
-1. Open and sign into Google Colab (https://colab.research.google.com)
+1. Open and sign in to Google Colab (https://colab.research.google.com)
 2. Mount Google Drive. Open a new notebook and in a new cell, run
 ```python
 from google.colab import drive
