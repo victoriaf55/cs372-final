@@ -1,7 +1,8 @@
 ## Control of Inverted Pendulum Dynamics Through Reinforcement Learning 
-This projects aims to train a proximal policy optimization agent to balance a pendulum on a cart through 
-an actor-critic architecture. Utilizes the Inverted Pendulum environment from the Gymnasium API, with future 
-intent to train the agent on a physical version of this problem.
+This projects aims to train a reinforcement learning agent to balance a pendulum on a cart through 
+proximal policy optimization (PPO) with an actor-critic architecture. Utilizes the Inverted Pendulum 
+environment from the Gymnasium API, with future intent to train the agent on a physical version of 
+this problem.
 
 *Final project for COMPSCI372 at Duke University.*
 

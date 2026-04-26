@@ -34,15 +34,15 @@ pip install -r cs372-final/requirements.txt
 python train.py
 ```
 
-Checkpoints are saved every 50 updates to /content/drive/MyDrive/cs372_project/checkpoints/
+Checkpoints are saved every 50 updates to /content/drive/MyDrive/NEW_FOLDER_NAME/checkpoints/
 
-Training logs for TensorBoard are saved to /content/drive/MyDrive/cs372_project/logs/
+Training logs for TensorBoard are saved to /content/drive/MyDrive/NEW_FOLDER_NAME/logs/
 
 ### Monitoring Training
 Launch TensorBoard in Colab:
 ```python
 %load_ext tensorboard
-%tensorboard --logdir /content/drive/MyDrive/cs372_project/logs
+%tensorboard --logdir /content/drive/MyDrive/NEW_FOLDER_NAME/logs
 ```
 
 ### Evaluation
@@ -67,7 +67,7 @@ python evaluate.py --compare
 ```
 
 ### Viewing Results
-Videos are saved to /content/drive/MyDrive/cs372_project/videos/
+Videos are saved to /content/drive/MyDrive/NEW_FOLDER_NAME/videos/
 
 ## No External APIs Required
 This project uses only open-source tools and the MuJoCo physics engine
