@@ -52,7 +52,7 @@ print(f"Using device: {DEVICE}")
 torch.manual_seed(SEED)
 np.random.seed(SEED)
 
-env = gym.make(ENV_NAME, reset_noise_scale=0.1)
+env = gym.make(ENV_NAME)
 obs, _ = env.reset(seed=SEED)
 env.action_space.seed(SEED)
 
