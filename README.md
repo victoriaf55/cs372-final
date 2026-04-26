@@ -12,7 +12,7 @@ this problem.
 Balancing an inverted pendulum on a cart is a classic control problem that can be solved using control
 theory. The purpose of this project is to solve this problem by instead training an agent through reinforcement
 learning. The agent follows a proximal policy optimization (PPO) algorithm and learns through updating an actor-critic
-network while interacting with the Inverted Pendulum environment from Gymnasium API's MuJoCo physics engine. The agent receives a reward for each timestep that the pendulum remains balances, and the agent aims to maximize the total reward over an episode. This project implements an actor-critic network and a PPO algorithm that utilizes Generalized Advantage Estimation (GAE) to reduce variance, as well as training and evaluation methods. The trained agent achieves an average reward of 925.73/1000 per episode compared to an average baseline of 7.17/1000.
+network while interacting with the Inverted Pendulum environment from Gymnasium API's MuJoCo physics engine. The agent receives a reward for each timestep that the pendulum remains balances, and the agent aims to maximize the total reward over an episode. This project implements an actor-critic network and a PPO algorithm that utilizes Generalized Advantage Estimation (GAE) to reduce variance, as well as training and evaluation methods. The trained agent achieves an average reward of 975.73/1000 per episode compared to an average baseline of 7.17/1000.
 
 ### Quick Start
 See SETUP.md for full instructions.
@@ -55,7 +55,7 @@ python evaluate.py
 | Model | Mean Reward (max 1000) | Reward Std | Success Rate (% of episodes max reward is achieved) |
 |---|---|---|---|
 | Random Baseline | 7.17 | 4.78 | 0% |
-| Trained Agent | 925.73 | 203.83 | 85.0% |
+| Trained Agent | 975.73 | 129.75 | 95.0% |
 
 ![Reward curve](docs/training_curve.png)
 
