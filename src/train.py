@@ -28,7 +28,7 @@ ENV_NAME = "InvertedPendulum-v5"
 TOTAL_TIMESTEPS = 1_500_000
 ROLLOUT_STEPS = 4096      
 HIDDEN_DIM = 64
-LR = 1e-4            
+LR = 6e-4            
 CLIP_EPS = 0.2
 N_EPOCHS = 10           
 BATCH_SIZE = 64
@@ -146,7 +146,7 @@ while timestep < TOTAL_TIMESTEPS:
 # Only for experiments
 torch.save(
     model.state_dict(),
-    f"{CHECKPOINT_PATH}/study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}.pt"
+    f"{CHECKPOINT_PATH}/LR2_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}.pt"
 )
 print(f"Checkpoint saved at final update")
 
