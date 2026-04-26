@@ -42,7 +42,7 @@ MAX_GRAD_NORM = 0.5
 LOG_INTERVAL = 5         # Log every N updates
 SAVE_INTERVAL = 50        # Save checkpoint every N updates
 CHECKPOINT_PATH = "/content/drive/MyDrive/cs372_final_project/checkpoints"
-RUN_NAME = f"A3_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
+RUN_NAME = f"A2_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}_{datetime.now().strftime('%m%d%Y_%H%M%S')}"
 RESUME_CHECKPOINT = f"{CHECKPOINT_PATH}/ppo_update_400.pt"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -148,7 +148,7 @@ while timestep < TOTAL_TIMESTEPS:
 # Only for experiments
 torch.save(
     model.state_dict(),
-    f"{CHECKPOINT_PATH}/A3_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}.pt"
+    f"{CHECKPOINT_PATH}/A2_study_lr{LR}_valcoeff{VALUE_COEF}_clip{CLIP_EPS}.pt"
 )
 print(f"Checkpoint saved at final update")
 
