@@ -57,5 +57,7 @@ python evaluate.py
 | Random Baseline | 7.17 | 4.78 | 0% |
 | Trained Agent | 925.73 | 203.83 | 85.0% |
 
+![Reward curve](docs/training_curve.png)
+
 ### Individual Contributions
 Solo project completed by Victoria Feng.
