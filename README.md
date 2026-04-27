@@ -48,7 +48,7 @@ python evaluate.py
 ```
 
 ### Video Links
-- Project Demo: [link]
+- Project Demo: [videos/Project_Demo.mp4]
 - Technical Walkthrough: [link]
 
 ### Evaluation
