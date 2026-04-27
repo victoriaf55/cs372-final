@@ -74,12 +74,6 @@ agent = PPO(
     device=DEVICE
 )
 
-# AI-GENERATED: Load checkpoint if specified
-# if os.path.exists(RESUME_CHECKPOINT):
-#     model.load_state_dict(torch.load(RESUME_CHECKPOINT, map_location=DEVICE))
-#     print(f"Resumed from checkpoint: {RESUME_CHECKPOINT}")
-# else:
-#     print("No checkpoint found, starting fresh")
 
 # AI-GENERATED: TensorBoard writer initialized with run name for experiment tracking
 writer = SummaryWriter(
@@ -136,14 +130,6 @@ while timestep < TOTAL_TIMESTEPS:
         writer.add_scalar("losses/policy_loss", losses['policy_loss'], timestep)
         writer.add_scalar("losses/value_loss", losses['value_loss'], timestep)
         writer.add_scalar("losses/entropy", losses['entropy'], timestep)
-
-    # # Checkpoint
-    # if update % SAVE_INTERVAL == 0:
-    #     torch.save(
-    #         model.state_dict(),
-    #         f"{CHECKPOINT_PATH}/ppo_update_{update}.pt"
-    #     )
-    #     print(f"Checkpoint saved at update {update}")
 
 # Only for experiments
 torch.save(

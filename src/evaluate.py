@@ -120,7 +120,7 @@ def evaluate(model, env_name, n_episodes=100, seed=42, device="cpu"):
         "max_reward":        np.max(rewards),
         "median_reward":     np.median(rewards),
         "mean_ep_length":    np.mean(episode_lengths),
-        "success_rate":      np.mean([r >= 990 for r in rewards]),  # % episodes near perfect
+        "success_rate":      np.mean([r == 1000 for r in rewards]),  # % episodes near perfect
         "n_episodes":        n_episodes
     }
 
