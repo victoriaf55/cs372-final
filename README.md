@@ -48,7 +48,7 @@ python evaluate.py
 ```
 
 ### Video Links
-- Project Demo: [videos/Project_Demo.mp4]
+- Project Demo: [link](<video controls src="https://github.com/victoriaf55/cs372-final/blob/main/videos/Project_Demo.mp4" title="videos/Project_Demo.mp4"></video>)
 - Technical Walkthrough: [link]
 
 ### Evaluation
