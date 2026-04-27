@@ -49,7 +49,7 @@ python evaluate.py
 
 ### Video Links
 - Project Demo: [link](https://github.com/victoriaf55/cs372-final/blob/08616d1128a4f92b7d1cc2fc5dc6b69122ad90d0/videos/Project_Demo.mp4)
-- Technical Walkthrough: [link]
+- Technical Walkthrough: [link](https://github.com/victoriaf55/cs372-final/blob/e355dd4c9be603b5a50328b3e348728c864f9d00/videos/Technical_Walkthrough.mp4)
 
 ### Evaluation
 | Model | Mean Reward (max 1000) | Reward Std | Success Rate (% of episodes max reward is achieved) |
